@@ -1,0 +1,11 @@
+version: '3'
+services:
+  postges:
+    image: postgres:10.6-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: islands
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: dbpass
+    ports:
+      - 5432:5432
