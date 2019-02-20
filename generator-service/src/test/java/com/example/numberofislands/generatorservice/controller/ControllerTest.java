@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -23,6 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
+//@WebMvcTest(Controller.class)
 @WebMvcTest(Controller.class)
 public class ControllerTest {
 
@@ -34,6 +36,9 @@ public class ControllerTest {
 
     @MockBean
     private IslandsRepository islandsRepository;
+
+    @MockBean
+    private KafkaTemplate<String, Islands> kafkaTemplate;
 
     @Autowired
     private MockMvc mvc;
@@ -71,7 +76,7 @@ public class ControllerTest {
 
     @Test
     public void postIslands_ShouldReturnCreatedStatus() throws Exception {
-        mvc.perform(post(URL)
+        mvc.perform(post(URL + "generate")
                 .param("rows", "5")
                 .param("cols", "5")
                 .accept(MediaType.APPLICATION_JSON))
