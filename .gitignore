@@ -1,8 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
 # Compiled class file
-*.class
-
 # Log file
 *.log
 
@@ -33,12 +31,9 @@ hs_err_pid*
 .idea/**/shelf
 
 # Sensitive or high-churn files
-.idea/**/dataSources/
 .idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
 .idea/**/sqlDataSources.xml
 .idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 
 # Gradle
